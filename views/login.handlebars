@@ -1,0 +1,16 @@
+<section id="viewLogin">
+    {{#if error}}
+    <span class="errorBox">{{error.error}}</span>
+    {{/if}}
+    {{#if message}}
+    <span class="errorBox">{{message}}</span>
+    {{/if}}
+    <h2>Login:</h2>
+    <form action="/auth/login" method="POST" id="formLogin">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" placeholder="Enter your Username">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" placeholder="Enter your Password">
+        <input type="submit" class="login" value="Login">
+    </form>
+</section>

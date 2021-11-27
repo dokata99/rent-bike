@@ -1,0 +1,9 @@
+<section id="viewAddPhoto">
+    <h2>Upload photo</h2>
+    <form action="/profile/edit/{{userId}}" method="POST" id="formAddPhoto">
+        <label for="photo">Profile Image:</label>
+        <input type="text" id="profileImg" name="profileImg" placeholder="Image URL">
+        <input type="submit" class="create" value="Save">
+        <a href="/profile/{{userId}}" class="remove">Cancel</a>
+    </form>
+</section>

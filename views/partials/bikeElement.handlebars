@@ -1,0 +1,39 @@
+<a href="/details/{{_id}}" class="col-md-3">
+    <div class="card mt-4">
+        <div class="car align-items-center p-0 text-center">
+            <div class="datetime">
+               Добавена на: {{date}} ч.
+            </div>
+            <img src="{{imageUrl}}" alt="" class="rounded">
+            <h5 class="brand-model">{{brand.brand}}</h5>
+            <hr>
+            <h6>{{year}}, {{engine}}, {{mileage}}км.</h6>
+            <div class="mt-3 info">
+                <span class="description d-block">
+                    {{description}}
+                </span>
+            </div>
+            <div class="more-info">
+                Автор на обявата:
+                <span class="owner">
+                    {{owner.username}}
+                </span>
+                <br>
+                Регион:
+                <span class="region">
+                    {{region.region}}
+                </span>
+            </div>
+            <hr>
+            <div class="cost text-dark">
+                <span>{{price}} лв.</span>
+            </div>
+
+        </div>
+    </div>
+</a>
+
+{{!-- <img src="{{imageUrl}}" alt="" class="picture-added-car">
+<h3>{{brand.brand}} {{model}}</h3>
+<span>Price:{{price}} BGN</span> --}}
+{{!-- </a> --}}

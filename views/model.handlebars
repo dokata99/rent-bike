@@ -1,0 +1,14 @@
+<section id="viewAddModel">
+    <h2>Add models</h2>
+    <form action="/add/model" method="post" id="viewAddModel">
+        <label for="brand">Car brand:</label>
+        <select name="brand" id="brand">
+            {{#each brands}}
+            {{>brandElement}}
+            {{/each}}
+        </select>
+        <label for="model">Car model:</label>
+        <input type="text" id="model" name="model" placeholder="Model name">
+        <input type="submit" class="create" value="Add">
+    </form>
+</section>

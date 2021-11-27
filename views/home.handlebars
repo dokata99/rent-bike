@@ -1,0 +1,110 @@
+<div class='search' id='search'>
+        <select name="searchBrand" class="btn filter-btn" id="searchBrand">
+            <option selected disabled>Избери марка</option>
+            <option value="all">Всички марки</option>
+            {{#each brands}}
+            {{>brandElement}}
+            {{/each}}
+        </select>
+        <button type="button" id="regionFilter" class="btn filter-btn" data-toggle="modal" data-target="#regionModal">
+            Регион
+        </button>
+        <div class="modal fade" id="regionModal" tabindex="-1" role="dialog" aria-labelledby="regionModal"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Регион</h5>
+                    </div>
+                    <div class="modal-body" id="searchRegion">
+                        {{#each regions}}
+                        {{>regionCheckboxElement}}
+                        {{/each}}
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" id="regionButton" class="btn btn-primary"
+                            data-dismiss="modal">Приложи</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+        <button type="button" id="yearFilter" class="btn filter-btn" data-toggle="modal" data-target="#yearModal">
+            Година
+        </button>
+        <div class="modal fade" id="yearModal" tabindex="-1" role="dialog" aria-labelledby="yearModal"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Година</h5>
+                    </div>
+                    <div class="modal-body" id="searchYear">
+                        <div class="var-slider">
+                            <div class="var-value">
+                                От:
+                                <input type="number" readonly id="searchMinYear" value="{{minYear}}" min="{{minYear}}"
+                                    max="{{maxYear}}" /> г.
+                                <br>
+                                До:
+                                <input type="number" readonly id="searchMaxYear" value="{{maxYear}}" min="{{minYear}}"
+                                    max="{{maxYear}}" /> г.
+                            </div>
+                            <input type="range" id="searchMinYearSlider" name="searchYearMin" value="{{minYear}}" min="{{minYear}}"
+                                max="{{maxYear}}" step="1" />
+                            <input type="range" id="searchMaxYearSlider" name="searchYearMax" value="{{maxYear}}" min="{{minYear}}"
+                                max="{{maxYear}}" step="1" />
+                            <svg width="100%" height="24" />
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" id="yearButton" class="btn btn-primary"
+                            data-dismiss="modal">Приложи</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button type="button" id="priceFilter" class="btn filter-btn" data-toggle="modal" data-target="#priceModal">
+            Цена
+        </button>
+        <div class="modal fade" id="priceModal" tabindex="-1" role="dialog" aria-labelledby="priceModal"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Цена</h5>
+                    </div>
+                    <div class="modal-body" id="searchPrice">
+                        <div class="var-slider">
+                            <div class="var-value">
+                                От:
+                                <input type="number" readonly id="searchMinPrice" value="{{minPrice}}"
+                                    min="{{minPrice}}" max="{{maxPrice}}" /> лв.
+                                <br>
+                                До:
+                                <input type="number" readonly id="searchMaxPrice" value="{{maxPrice}}"
+                                    min="{{minPrice}}" max="{{maxPrice}}" /> лв.
+                            </div>
+                            <input type="range" id="searchMinPriceSlider" name="searchPriceMin" value="{{minPrice}}" min="{{minPrice}}"
+                                max="{{maxPrice}}" step="100" />
+                            <input type="range" id="searchMaxPriceSlider" name="searchPriceMax" value="{{maxPrice}}" min="{{minPrice}}"
+                                max="{{maxPrice}}" step="100" />
+                            <svg width="100%" height="24" />
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" id="priceButton" class="btn btn-primary"
+                            data-dismiss="modal">Приложи</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <input type="submit" class="btn" id="clearButton" value="Изчисти">
+</div>
+<div id='inner-container'>
+    <div class="row">
+        {{#each bikes}}
+        {{>bikeElement}}
+        {{/each}}
+    </div>
+</div>

@@ -1,0 +1,33 @@
+<section id="viewProfileDetails">
+    <div class="profile">
+        {{#if profile.profileImg}}
+        <div class="profile-img">
+            <img src="{{profile.profileImg}}" alt="default user">
+        </div>
+        {{/if}}
+        <div class="profile-info">
+            <h3>User Info:</h3>
+            <div class="flex">
+                <p>Username: </p>
+                <p>{{profile.username}}</p>
+            </div>
+            <div class="flex">
+                <p>Email: </p>
+                <p>{{profile.email}}</p>
+            </div>
+            <div class="flex">
+                <p>Phone Number: </p>
+                <p>
+                    <span>{{profile.phone}}</span>
+                </p>
+            </div>
+            {{#if isOwner}}
+            <div class="details-buttons">
+                <a href="/profile/edit/{{userId}}" id="edit-button">Upload Photo</a>
+            </div>
+            {{/if}}
+        </div>
+
+    </div>
+
+</section>
