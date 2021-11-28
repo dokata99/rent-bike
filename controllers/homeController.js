@@ -7,55 +7,49 @@ const addService = require('../services/addService')
 router.get('/', async(req, res) => {
     let bikes = await homeService.getAll();
     let regions = await addService.getRegions();
+    let minPrice = await homeService.getMinPrice();
+    let maxPrice = await homeService.getMaxPrice();
+    homeService.formatDate(bikes);
 
     try {
-        res.render('home', { title: 'Rent A Bike', bikes })
+        res.render('home', { title: 'Rent A Bike', bikes, regions, minPrice, maxPrice });
     } catch (err) {
-        console.log(err)
-        res.render('home', { title: 'Rent A Bike' })
-
+        console.log(err);
+        res.render('home', { title: 'Rent A Bike' });
     }
 })
 
-router.get('/details/:carId', async(req, res) => {
-
-    let car = await homeService.getById(req.params.carId)
-    let brand = await homeService.getBrandName(car.brand)
-    let model = await homeService.getModelName(car.model)
-    let user = await profileService.getUser(car.owner)
-    let region = await homeService.getRegionName(car.region)
+router.get('/details/:bikeId', async(req, res) => {
+    let bike = await homeService.getById(req.params.bikeId);
+    let user = await profileService.getUser(bike.owner);
+    let region = await homeService.getRegionName(bike.region);
 
     let isOwner = false
     if (req.user) {
-        isOwner = await homeService.check(req.user._id, req.params.carId)
+        isOwner = await homeService.check(req.user._id, req.params.bikeId);
     }
-    res.render('details', { title: 'Rent A Bike', car, isOwner, user, brand, model, region })
+
+    res.render('details', { title: 'Rent A Bike', bike, isOwner, user, region });
 })
 
-router.get('/edit/:carId', async(req, res) => {
+router.get('/edit/:bikeId', async(req, res) => {
+    let bikeId = await req.params.bikeId;
 
-    let carId = await req.params.carId
-
-
-    res.render('editCar', { title: 'Rent A Bike', carId })
+    res.render('editBike', { title: 'Rent A Bike', bikeId });
 })
 
-router.post('/edit/:carId', async(req, res) => {
-
-    homeService.editCar(req.params.carId, req.body)
+router.post('/edit/:bikeId', async(req, res) => {
+    homeService.editBike(req.params.bikeId, req.body)
         .then(() =>
-            res.redirect(`/details/${req.params.carId}`)
-        )
-
+            res.redirect(`/details/${req.params.bikeId}`)
+        );
 })
 
-router.get('/delete/:carId', async(req, res) => {
-
-    homeService.deleteCar(req.params.carId)
+router.get('/delete/:bikeId', async(req, res) => {
+    homeService.deleteBike(req.params.bikeId)
         .then(() =>
             res.redirect("/")
-        )
-
+        );
 })
 
 module.exports = router

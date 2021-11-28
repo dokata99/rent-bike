@@ -3,20 +3,16 @@
     <div class="car-ticket">
         <div class="car-ticket-left">
             <div class="car-img">
-                <img src="{{car.imageUrl}}" alt="">
+                <img src="{{bike.imageUrl}}" alt="">
             </div>
             <div class="car-info">
                 <div class="flex">
-                    <p>Марка: </p>
-                    <p>{{brand.brand}}</p>
-                </div>
-                <div class="flex">
-                    <p>Модел:</p>
-                    <p>{{model.model}}</p>
+                    <p>Регион:</p>
+                    <p>{{region.region}}</p>
                 </div>
                 <div class="flex">
                     <p>Цена:</p>
-                    <p>{{car.price}}BGN</p>
+                    <p>{{bike.rentPrice}} лв / час</p>
                 </div>
                 <div class="flex">
                     <p>Собственик:</p>
@@ -24,13 +20,13 @@
                 </div>
                 <div class="flex">
                     <p>Контакти:</p>
-                    <p><span>{{user.phone}}</span> </p>
+                    <p><span>{{user.phone}} / {{user.email}}</span> </p>
                 </div>
                 {{#if isAuthenticated}}
                 {{#if isOwner}}
                 <div class="details-buttons">
-                    <a id="edit-button" href="/edit/{{car._id}}" class="edit">Edit</a>
-                    <a id="delete-button" href="/delete/{{car._id}}">Delete</a>
+                    <a id="edit-button" href="/edit/{{bike._id}}" class="edit">Редактирай</a>
+                    <a id="delete-button" href="/delete/{{bike._id}}">Изтрий</a>
                 </div>
                 {{/if}}
                 {{/if}}
@@ -38,23 +34,7 @@
         </div>
         <div class="car-ticket-right">
             <div class="flex-right">
-                <p>Описание:<p id="description">{{car.description}}</p></p>
-            </div>
-            <div class="flex-right">
-                <p>Гориво:</p>
-                <p>{{car.engine}}</p>
-            </div>
-            <div class="flex-right">
-                <p>Година:</p>
-                <p>{{car.year}}</p>
-            </div>
-            <div class="flex-right">
-                <p>Година:</p>
-                <p>{{region.region}}</p>
-            </div>
-            <div class="flex-right">
-                <p>Километри:</p>
-                <p>{{car.mileage}} КМ.</p>
+                <p>Описание:<p id="description">{{bike.description}}</p></p>
             </div>
         </div>
     </div>

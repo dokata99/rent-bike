@@ -25,10 +25,9 @@ const bikeSchema = new mongoose.Schema({
         required: true,
     },
     date: {
-        type: String,
+        type: Date,
         required: true
     }
-
 })
 
-module.exports = mongoose.model('Bike', bikeSchema)
+module.exports = mongoose.model('Bikes', bikeSchema)

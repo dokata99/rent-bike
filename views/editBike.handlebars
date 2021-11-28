@@ -1,0 +1,11 @@
+<section id="viewAddPhoto">
+    <h2>Редактирай обявата</h2>
+    <form action="/edit/{{bikeId}}" method="POST" id="formAddPhoto">
+        <label for="photo">Изображение:</label>
+        <input type="text" id="ImageUrl" name="imageUrl" placeholder="https://">
+        <label for="price">Цена за час:</label>
+        <input type="text" id="price" name="price" placeholder="0.00лв">
+        <input type="submit" class="create" value="Запази">
+        <a href="/details/{{bikeId}}" class="remove">Откажи</a>
+    </form>
+</section>

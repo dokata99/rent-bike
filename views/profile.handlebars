@@ -6,24 +6,24 @@
         </div>
         {{/if}}
         <div class="profile-info">
-            <h3>User Info:</h3>
+            <h3>Информация за профила:</h3>
             <div class="flex">
-                <p>Username: </p>
-                <p>{{profile.username}}</p>
+                <p>Потребителско име: </p>
+                <p> {{profile.username}}</p>
             </div>
             <div class="flex">
-                <p>Email: </p>
-                <p>{{profile.email}}</p>
+                <p>Имейл: </p>
+                <p> {{profile.email}}</p>
             </div>
             <div class="flex">
-                <p>Phone Number: </p>
+                <p>Телефонен номер: </p>
                 <p>
-                    <span>{{profile.phone}}</span>
+                    <span> {{profile.phone}}</span>
                 </p>
             </div>
             {{#if isOwner}}
             <div class="details-buttons">
-                <a href="/profile/edit/{{userId}}" id="edit-button">Upload Photo</a>
+                <a href="/profile/edit/{{userId}}" id="edit-button">Прикачи изображение</a>
             </div>
             {{/if}}
         </div>

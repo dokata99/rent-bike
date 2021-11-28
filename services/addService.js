@@ -1,4 +1,4 @@
-const Bike = require('../model/bike')
+const Bike = require('../model/bikes')
 const Regions = require('../model/regions')
 
 async function createBike(description, price, imageUrl, regionName, user) {
