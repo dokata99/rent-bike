@@ -10,11 +10,6 @@ async function getAll() {
 async function getMatchingBikes(query) {
     const { searchBike, searchRegion, searchPriceMin, searchPriceMax } = query;
     let filterQuery = {};
-    if (searchBike && searchBike !== "all") {
-        let bike = await Bikes.findOne({ bikeName: searchBrand }).lean()
-
-        filterQuery.brand = bikeName._id;
-    }
 
     if (searchRegion) {
         let regions = await Regions.find({ region: searchRegion }).lean()
@@ -27,39 +22,32 @@ async function getMatchingBikes(query) {
     }
 
     if (searchPriceMin && searchPriceMax) {
-        filterQuery.price = { $gte: searchPriceMin, $lte: searchPriceMax };
-    }
-    if (searchMileageMin && searchMileageMax) {
-        filterQuery.mileage = { $gte: searchMileageMin, $lte: searchMileageMax };
+        filterQuery.rentPrice = { $gte: searchPriceMin, $lte: searchPriceMax };
     }
 
-    let bikes = await Bikes.find(filterQuery).sort({ _id: -1 }).populate('region').lean()
+    let bikes = await Bikes.find(filterQuery).sort({ _id: -1 }).populate('region').populate('owner').lean()
 
     return bikes
 }
 
 async function getMinPrice() {
-    let bike = await Bikes.findOne({}).sort({ price: 1 }).lean();
+    let bike = await Bikes.findOne({}).sort({ rentPrice: 1 }).lean();
 
     if (bike == null) {
         return 0;
     }
 
-    let minPrice = bike.price;
-
-    return minPrice;
+    return bike.rentPrice;
 }
 
 async function getMaxPrice() {
-    let bike = await Bikes.findOne({}).sort({ price: -1 }).lean();
+    let bike = await Bikes.findOne({}).sort({ rentPrice: -1 }).lean();
 
     if (bike == null) {
         return 0;
     }
 
-    let maxPrice = bike.price;
-
-    return maxPrice;
+    return bike.rentPrice;
 }
 
 function formatDate(bikes) {

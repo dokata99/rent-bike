@@ -5,18 +5,15 @@ const profileService = require('../services/profileService')
 const addService = require('../services/addService')
 
 router.get('/', async(req, res) => {
-    let bikes = await homeService.getAll();
     let regions = await addService.getRegions();
     let minPrice = await homeService.getMinPrice();
     let maxPrice = await homeService.getMaxPrice();
-    homeService.formatDate(bikes);
 
-    try {
-        res.render('home', { title: 'Rent A Bike', bikes, regions, minPrice, maxPrice });
-    } catch (err) {
-        console.log(err);
-        res.render('home', { title: 'Rent A Bike' });
-    }
+    homeService.getMatchingBikes(req.query)
+        .then((bikes) => {
+            homeService.formatDate(bikes);
+            res.render('home', { title: 'Rent A Bike', bikes, regions, minPrice, maxPrice })
+        }).catch(() => res.status(500).end());
 })
 
 router.get('/details/:bikeId', async(req, res) => {

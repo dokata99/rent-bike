@@ -22,7 +22,7 @@
             </div>
         </div>
         <button type="button" id="priceFilter" class="btn filter-btn" data-toggle="modal" data-target="#priceModal">
-            Цена
+            Цена за час
         </button>
         <div class="modal fade" id="priceModal" tabindex="-1" role="dialog" aria-labelledby="priceModal"
             aria-hidden="true">
@@ -43,9 +43,9 @@
                                     min="{{minPrice}}" max="{{maxPrice}}" /> лв.
                             </div>
                             <input type="range" id="searchMinPriceSlider" name="searchPriceMin" value="{{minPrice}}" min="{{minPrice}}"
-                                max="{{maxPrice}}" step="100" />
+                                max="{{maxPrice}}" step="1" />
                             <input type="range" id="searchMaxPriceSlider" name="searchPriceMax" value="{{maxPrice}}" min="{{minPrice}}"
-                                max="{{maxPrice}}" step="100" />
+                                max="{{maxPrice}}" step="1" />
                             <svg width="100%" height="24" />
                         </div>
                     </div>

@@ -2,10 +2,17 @@ const region = document.getElementById("regionButton");
 const price = document.getElementById("priceButton");
 const clearButton = document.getElementById("clearButton");
 
-region.addEventListener("click", () => search());
-price.addEventListener("click", () => search());
+if (region != null) {
+    region.addEventListener("click", () => search());
+}
 
-clearButton.addEventListener("click", () => clear());
+if (price != null) {
+    price.addEventListener("click", () => search());
+}
+
+if (clearButton != null) {
+    clearButton.addEventListener("click", () => clear());
+}
 
 function search() {
     const urlParams = new URLSearchParams(window.location.search);
@@ -55,8 +62,6 @@ function clear() {
     const maxPrice = document.getElementById("searchMaxPrice");
     const minPriceSlider = document.getElementById("searchMinPriceSlider");
     const maxPriceSlider = document.getElementById("searchMaxPriceSlider");
-
-    brand.value = "all";
 
     regions.forEach((r) => {
         r.checked = false;
