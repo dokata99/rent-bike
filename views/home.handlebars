@@ -1,11 +1,4 @@
 <div class='search' id='search'>
-        <select name="searchBrand" class="btn filter-btn" id="searchBrand">
-            <option selected disabled>Избери марка</option>
-            <option value="all">Всички марки</option>
-            {{#each brands}}
-            {{>brandElement}}
-            {{/each}}
-        </select>
         <button type="button" id="regionFilter" class="btn filter-btn" data-toggle="modal" data-target="#regionModal">
             Регион
         </button>
@@ -23,42 +16,6 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" id="regionButton" class="btn btn-primary"
-                            data-dismiss="modal">Приложи</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-       
-        <button type="button" id="yearFilter" class="btn filter-btn" data-toggle="modal" data-target="#yearModal">
-            Година
-        </button>
-        <div class="modal fade" id="yearModal" tabindex="-1" role="dialog" aria-labelledby="yearModal"
-            aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">Година</h5>
-                    </div>
-                    <div class="modal-body" id="searchYear">
-                        <div class="var-slider">
-                            <div class="var-value">
-                                От:
-                                <input type="number" readonly id="searchMinYear" value="{{minYear}}" min="{{minYear}}"
-                                    max="{{maxYear}}" /> г.
-                                <br>
-                                До:
-                                <input type="number" readonly id="searchMaxYear" value="{{maxYear}}" min="{{minYear}}"
-                                    max="{{maxYear}}" /> г.
-                            </div>
-                            <input type="range" id="searchMinYearSlider" name="searchYearMin" value="{{minYear}}" min="{{minYear}}"
-                                max="{{maxYear}}" step="1" />
-                            <input type="range" id="searchMaxYearSlider" name="searchYearMax" value="{{maxYear}}" min="{{minYear}}"
-                                max="{{maxYear}}" step="1" />
-                            <svg width="100%" height="24" />
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" id="yearButton" class="btn btn-primary"
                             data-dismiss="modal">Приложи</button>
                     </div>
                 </div>

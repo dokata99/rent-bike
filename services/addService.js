@@ -1,45 +1,43 @@
 const Bike = require('../model/bike')
 const Regions = require('../model/regions')
 
-async function createBike(bikeName, regionName, bikeData, userId) {
+async function createBike(description, price, imageUrl, regionName, user) {
 
-    let region = await Regions.findOne({ region: regionName }).lean()
+    let region = await Regions.findOne({ region: regionName }).lean();
 
     let bike = new Bike({
-        bikeName: bikeName,
-        imageUrl: bikeData.imageUrl,
-        description: bikeData.description,
-        rentPrice: bikeData.price,
-        owner: userId,
+        imageUrl: imageUrl,
+        description: description,
+        rentPrice: price,
+        owner: user._id,
         region: region._id,
         date: Date.now()
     })
 
-    return bike.save()
+    return bike.save();
+}
+
+async function createRegion(region) {
+    let newRegion = new Regions(region)
+
+    return newRegion.save();
 }
 
 async function getBikes() {
-    let bike = await Bike.find({}).sort({ bike: 1 }).lean()
+    let bikes = await Bike.find({}).sort({ bike: 1 }).lean()
 
-    return bike
+    return bikes;
 }
 
 async function getRegions() {
     let regions = await Regions.find({}).sort({ region: 1 }).lean()
 
-    return regions
-}
-
-
-function createRegion(region) {
-    let newRegion = new Regions(region)
-
-    return newRegion.save()
+    return regions;
 }
 
 module.exports = {
-    getBikes,
-    getRegions,
     createBike,
-    createRegion
+    createRegion,
+    getBikes,
+    getRegions
 }

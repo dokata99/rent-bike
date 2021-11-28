@@ -1,33 +1,10 @@
 <section id="viewAddCar">
     <div class="add-form">
         <h2>Добавяне на нова обява</h2>
-        <form action="/add" method="post" id="formAddCar" class="row gy-2 gx-3 align-items-center">
-            <label for="brand">Марка:</label>
-            <select name="brand" id="brand">
-                <option selected disabled>Избери марка</option>
-                {{#each brands}}
-                {{>brandElement}}
-                {{/each}}
-            </select>
-            <label for="model">Модел:</label>
-            <select name="model" id="model">
-            </select>
-            <label for="year">Година на производство:</label>
-            <input type="number" id="year" name="year" value="2000">
-            <label for="engine">Двигател:</label>
-            <select name="engine" id="engine">
-                <option selected disabled>Избери двигател</option>
-                <option>Дизел</option>
-                <option>Бензин</option>
-                <option>Газ</option>
-                <option>Хибрид</option>
-                <option>Електрически</option>
-            </select>
-            <label for="mileage">Пробег:</label>
-            <input type="text" id="mileage" name="mileage">
+        <form action="/add" method="post" id="formAddBike" class="row gy-2 gx-3 align-items-center">
             <label for="description">Описание:</label>
             <textarea name="description" id="description" cols="30" rows="5"></textarea>
-            <label for="price">Цена:</label>
+            <label for="price">Цена за час:</label>
             <input type="text" id="price" name="price">
             <label for="imageUrl">Снимка:</label>
             <input type="text" id="imageUrl" name="imageUrl" placeholder="https://">

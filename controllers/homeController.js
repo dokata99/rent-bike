@@ -6,17 +6,15 @@ const addService = require('../services/addService')
 
 router.get('/', async(req, res) => {
     let bikes = await homeService.getAll();
-    //let regions = await addService.getRegions();
-   
-    try{
-        res.render('home', { title: 'Rent Express', bikes})
-    }catch(err){
+    let regions = await addService.getRegions();
+
+    try {
+        res.render('home', { title: 'Rent A Bike', bikes })
+    } catch (err) {
         console.log(err)
-        res.render('home', { title: 'CarExpress'})
+        res.render('home', { title: 'Rent A Bike' })
 
     }
-    
-
 })
 
 router.get('/details/:carId', async(req, res) => {
@@ -31,7 +29,7 @@ router.get('/details/:carId', async(req, res) => {
     if (req.user) {
         isOwner = await homeService.check(req.user._id, req.params.carId)
     }
-    res.render('details', { title: 'CarsExpress', car, isOwner, user, brand, model, region })
+    res.render('details', { title: 'Rent A Bike', car, isOwner, user, brand, model, region })
 })
 
 router.get('/edit/:carId', async(req, res) => {
@@ -39,7 +37,7 @@ router.get('/edit/:carId', async(req, res) => {
     let carId = await req.params.carId
 
 
-    res.render('editCar', { title: 'CarsExpress', carId })
+    res.render('editCar', { title: 'Rent A Bike', carId })
 })
 
 router.post('/edit/:carId', async(req, res) => {

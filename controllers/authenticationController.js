@@ -9,11 +9,11 @@ const isGuest = require('../middlewares/isGuest')
 
 router.get('/register', isGuest, (req, res) => {
 
-    res.render('register', { title: 'CarsExpress' })
+    res.render('register', { title: 'Rent A Bike' })
 
 })
 
-router.post('/register', isGuest, async (req, res) => {
+router.post('/register', isGuest, async(req, res) => {
     const { email, username, phone, password, rePassword } = req.body
 
     if (password !== rePassword) {
@@ -31,15 +31,15 @@ router.post('/register', isGuest, async (req, res) => {
         return res.render('register', { title: 'Register', error: 'Password should be more than 3 symbols!' })
     }
     let searchUser = await authService.findUserByUsername(username);
-    if(searchUser){
+    if (searchUser) {
         return res.render('register', { title: 'Register', error: 'User or email already exists!' })
     }
     let searchEmail = await authService.findUserByEmail(email)
-    if(searchEmail){
+    if (searchEmail) {
         return res.render('register', { title: 'Register', error: 'User or email already exists!' })
     }
-     
-    
+
+
 
     //VALIDATION TODO
 
@@ -61,20 +61,20 @@ router.post('/register', isGuest, async (req, res) => {
 
 router.get('/login', isGuest, (req, res) => {
 
-    res.render('login', { title: 'CarsExpress' })
+    res.render('login', { title: 'Rent A Bike' })
 
 })
 
-router.post('/login', isGuest, async (req, res) => {
+router.post('/login', isGuest, async(req, res) => {
 
     const { username, password } = req.body
 
     if (!username) {
-        return res.render('login', { title: 'CarsExpress', message: 'Enter all fields!' })
+        return res.render('login', { title: 'Rent A Bike', message: 'Enter all fields!' })
     }
 
     if (!password) {
-        return res.render('login', { title: 'CarsExpress', message: 'Enter all fields!' })
+        return res.render('login', { title: 'Rent A Bike', message: 'Enter all fields!' })
     }
 
     //validation TODO
@@ -89,7 +89,7 @@ router.post('/login', isGuest, async (req, res) => {
     } catch (error) {
 
         console.log(error)
-        res.render('login', { title: 'CarsExpress', error })
+        res.render('login', { title: 'Rent A Bike', error })
     }
 })
 
