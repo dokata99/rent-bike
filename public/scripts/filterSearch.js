@@ -63,6 +63,10 @@ function clear() {
     const minPriceSlider = document.getElementById("searchMinPriceSlider");
     const maxPriceSlider = document.getElementById("searchMaxPriceSlider");
 
+    if (!isPriceFilterApplied(minPrice, maxPrice) && !isRegionFilterApplied(regions)) {
+        return;
+    }
+
     regions.forEach((r) => {
         r.checked = false;
     });
@@ -73,4 +77,20 @@ function clear() {
     maxPriceSlider.value = maxPriceSlider.defaultValue;
 
     search();
+}
+
+function isPriceFilterApplied(minPrice, maxPrice) {
+    return minPrice.value !== minPrice.defaultValue || maxPrice.value !== maxPrice.defaultValue;
+}
+
+function isRegionFilterApplied(regions) {
+    let isApplied;
+
+    regions.forEach((r) => {
+        if (r.checked === true) {
+            isApplied = true;
+        }
+    });
+
+    return isApplied;
 }
