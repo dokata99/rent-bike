@@ -41,6 +41,24 @@ nav {
     transition: 0.2s;
 }
 
+#add-button {
+    padding: 5px 10px;
+    margin-left: 20px;
+    background: #fff;
+    color: rgb(46, 87, 126);
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 12px;
+    opacity: 0.5;
+    transition: 0.1s;
+}
+
+#add-button:hover {
+    background: #fff;
+    color: rgb(46, 87, 126);
+    opacity: 1;
+    transition: 0.1s;
+}
 
 .btn:focus {
     box-shadow: none;
