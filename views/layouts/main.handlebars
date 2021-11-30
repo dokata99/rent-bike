@@ -8,14 +8,15 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="/public/css/style.css" type="text/css">
     <link rel="stylesheet" href="/public/css/sliderStyle.css" type="text/css">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
 </head>
 
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark">
-            <a href="/" class="brand">Rent Express</a>
+        <nav class="navbar navbar-expand-lg bg-gray-200 font-mono">
+            <a href="/" class="text-gray-800 semibold text-5xl hover:text-gray-900 ">Rent Express</a>
             {{#if isAuthenticated}}
-            <a href="/add" id="add-button">Добави обява</a>
+            <a href="/add" class="text-gray-800 bg-blue-300 mx-5 rounded-full text-sm p-2 font-bold shadow-2xl hover:text-gray-900 hover:bg-blue-400" id="add-button">Добави обява</a>
             {{/if}}
             <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarMenu">
                 <span class="navbar-toggler-icon"></span>
