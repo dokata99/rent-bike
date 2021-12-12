@@ -18,7 +18,7 @@ body {
 }
 
 nav {
-    background-color: rgb(12, 46, 97);
+    background-color: rgb(52, 123, 230);
 }
 
 .brand {
@@ -206,10 +206,25 @@ footer {
     position: relative;
     bottom: 0;
     width: 100%;
-    height: 120px;
-    background-color: rgb(5, 20, 41);
+    background-image: linear-gradient(rgb(89, 180, 255), rgb(52, 123, 230));
     color: rgba(255, 255, 255, 0.7);
     text-align: center;
+}
+
+.footer-contacts{
+    margin-top: 15px;
+    color: white;
+    font-size: large;
+}
+
+.contact-info{
+    font-size: small;
+    color: rgb(187, 187, 187);
+    padding-bottom: 10px;
+}
+
+.logo-footer{
+    width: 100px;
 }
 
 #viewCarDetails,
@@ -309,6 +324,10 @@ a {
     opacity: 0.5;
     transition: 0.1s;
     background-color: rgb(240, 248, 248);
+}
+
+.main-logo{
+    width: 9em;
 }
 
 #delete-button:hover {
